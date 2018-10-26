@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MVVM Demo</string>
+    <string name="login">Login</string>
+    <string name="submit">Submit</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="please_enter_email">Please enter your email</string>
+    <string name="invalid_email">Invalid Email</string>
+    <string name="please_enter_your_password">Please enter your password</string>
+    <string name="invalid_username_or_password">Invalid Username or Password</string>
+</resources>
