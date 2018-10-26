@@ -1,9 +1,11 @@
 package com.abhishek.mvvmdemo.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.abhishek.mvvmdemo.HomeActivity
 import com.abhishek.mvvmdemo.R
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_login.*
@@ -78,6 +80,7 @@ class LoginActivity : AppCompatActivity(), Observer<LoginState> {
     }
 
     private fun goToHome() {
+        startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
 

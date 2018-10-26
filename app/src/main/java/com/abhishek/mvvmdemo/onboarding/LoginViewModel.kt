@@ -36,6 +36,7 @@ class LoginViewModel(private val apiService: MockApiService) : ViewModel() {
             disposableBag.add(
                 apiResponse
                     .filter { response -> response.error == null }
+                    .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         // store access token here
                         mutableLiveData.value = LoginSuccessState()
