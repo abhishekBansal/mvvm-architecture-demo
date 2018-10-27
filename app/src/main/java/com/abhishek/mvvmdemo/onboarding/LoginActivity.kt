@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity(), Observer<LoginState> {
 
             is LoginErrorState -> {
                 hideProgress()
-                handleErrors(state.error, state.errorType)
+                showErrors(state.error, state.errorType)
             }
 
             is LoadingState -> {
@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity(), Observer<LoginState> {
         }
     }
 
-    private fun handleErrors(error: Int, errorType: ErrorType) {
+    private fun showErrors(error: Int, errorType: ErrorType) {
         val errorString = getString(error)
         when (errorType) {
             ErrorType.EMAIL -> emailTil.error = errorString
