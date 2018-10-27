@@ -8,4 +8,6 @@
     <string name="invalid_email">Invalid Email</string>
     <string name="please_enter_your_password">Please enter your password</string>
     <string name="invalid_username_or_password">Invalid Username or Password</string>
+    <string name="empty_email">Email cannot be empty</string>
+    <string name="empty_password">Password cannot be empty</string>
 </resources>

@@ -64,9 +64,9 @@ class LoginViewModel(private val apiService: MockApiService) : ViewModel() {
             User.ValidationResult.INVALID_EMAIL ->
                 mutableLiveData.value = LoginErrorState(error = R.string.invalid_email, errorType = ErrorType.EMAIL)
             User.ValidationResult.EMPTY_EMAIL ->
-                mutableLiveData.value = LoginErrorState(error = R.string.invalid_email, errorType = ErrorType.EMAIL)
+                mutableLiveData.value = LoginErrorState(error = R.string.empty_email, errorType = ErrorType.EMAIL)
             User.ValidationResult.EMPTY_PASSWORD ->
-                mutableLiveData.value = LoginErrorState(error = R.string.invalid_email, errorType = ErrorType.PASSWORD)
+                mutableLiveData.value = LoginErrorState(error = R.string.empty_password, errorType = ErrorType.PASSWORD)
             User.ValidationResult.NO_ERROR ->
                 mutableLiveData.value = IdleState()
         }

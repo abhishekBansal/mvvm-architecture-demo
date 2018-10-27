@@ -55,7 +55,10 @@ class LoginActivity : AppCompatActivity(), Observer<LoginState> {
         val errorString = getString(error)
         when (errorType) {
             ErrorType.EMAIL -> emailTil.error = errorString
-            ErrorType.PASSWORD -> passwordTil.error = errorString
+            ErrorType.PASSWORD -> {
+                passwordTil.error = errorString
+                emailTil.isErrorEnabled = false
+            }
             ErrorType.EMAIL_AND_PASSWORD -> {
                 emailTil.error = errorString
                 passwordTil.error = errorString

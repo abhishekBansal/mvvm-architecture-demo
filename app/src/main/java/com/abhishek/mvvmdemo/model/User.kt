@@ -18,8 +18,8 @@ data class User(
     fun validate(): ValidationResult {
         return when {
             username.isBlank() -> ValidationResult.EMPTY_EMAIL
-            password.isBlank() -> ValidationResult.EMPTY_PASSWORD
             !Patterns.EMAIL_ADDRESS.matcher(username).matches() -> ValidationResult.INVALID_EMAIL
+            password.isBlank() -> ValidationResult.EMPTY_PASSWORD
             else -> ValidationResult.NO_ERROR
         }
     }
