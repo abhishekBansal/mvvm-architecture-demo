@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.abhishek.mvvmdemo"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -27,7 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
@@ -37,10 +37,11 @@ dependencies {
 
     // AndroidX (based on koin-android)
     // Koin AndroidX Scope feature
-    implementation "org.koin:koin-androidx-scope:1.0.0-RC-3"
+    def koin_version = "2.0.1"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
     // Koin AndroidX ViewModel feature
-    implementation "org.koin:koin-androidx-viewmodel:1.0.0-RC-3"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     // Timber for logging
-    implementation 'com.jakewharton.timber:timber:4.7.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }
