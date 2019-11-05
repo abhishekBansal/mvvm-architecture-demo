@@ -10,7 +10,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.abhishek.mvvmdemo.MyTestRunner"
     }
     buildTypes {
         release {
@@ -21,6 +21,10 @@ android {
 
     androidExtensions {
         experimental = true
+    }
+
+    testOptions {
+        animationsDisabled = true
     }
 }
 
@@ -44,4 +48,8 @@ dependencies {
 
     // Timber for logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // testing with Koin
+    androidTestImplementation "org.koin:koin-test:$koin_version"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
