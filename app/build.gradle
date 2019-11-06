@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -26,6 +27,10 @@ android {
     testOptions {
         animationsDisabled = true
     }
+
+    packagingOptions {
+        pickFirst 'mockito-extensions/org.mockito.plugins.MockMaker'
+    }
 }
 
 dependencies {
@@ -50,6 +55,18 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // testing with Koin
-    androidTestImplementation "org.koin:koin-test:$koin_version"
+    // because of this
+    // https://github.com/InsertKoinIO/koin/pull/604/commits/69391bc378bbb9007b9d82c46537e7d753be7ea3
+    androidTestImplementation 'org.mockito:mockito-android:3.1.0'
+    androidTestImplementation ("org.koin:koin-test:$koin_version") {
+        exclude group: 'org.mockito'
+    }
+
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // stuff like ActivityTestRule
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    // AndroidJUnit4
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    // test runner
+    androidTestImplementation 'androidx.test:runner:1.2.0'
 }

@@ -9,11 +9,12 @@ import com.abhishek.mvvmdemo.HomeActivity
 import com.abhishek.mvvmdemo.R
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity(), Observer<LoginState> {
 
-    private val loginViewModel: LoginViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by inject()
 
     private val disposableBag: CompositeDisposable = CompositeDisposable()
 
