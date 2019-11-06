@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity(), Observer<LoginState> {
 
-    private val loginViewModel: LoginViewModel by inject()
+    private val loginViewModel: LoginViewModel by viewModel()
 
     private val disposableBag: CompositeDisposable = CompositeDisposable()
 

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -13,6 +12,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "com.abhishek.mvvmdemo.MyTestRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,16 +20,21 @@ android {
         }
     }
 
-    androidExtensions {
-        experimental = true
-    }
-
     testOptions {
         animationsDisabled = true
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
     packagingOptions {
         pickFirst 'mockito-extensions/org.mockito.plugins.MockMaker'
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
@@ -69,4 +74,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     // test runner
     androidTestImplementation 'androidx.test:runner:1.2.0'
+    // mockk
+    androidTestImplementation "io.mockk:mockk-android:1.9.3.kotlin12"
 }

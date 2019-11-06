@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-open class LoginViewModel(private val apiService: MockApiService) : ViewModel() {
+class LoginViewModel(private val apiService: MockApiService) : ViewModel() {
     private val disposableBag = CompositeDisposable()
     val mutableLiveData = MutableLiveData<LoginState>()
 
