@@ -2,6 +2,7 @@ package com.abhishek.mvvmdemo.onboarding
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.abhishek.mvvmdemo.OpenForTesting
 import com.abhishek.mvvmdemo.R
 import com.abhishek.mvvmdemo.api.MockApiService
 import com.abhishek.mvvmdemo.model.Error
@@ -11,6 +12,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
+@OpenForTesting
 class LoginViewModel(private val apiService: MockApiService) : ViewModel() {
     private val disposableBag = CompositeDisposable()
     val mutableLiveData = MutableLiveData<LoginState>()

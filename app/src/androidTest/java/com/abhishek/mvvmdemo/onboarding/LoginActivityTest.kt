@@ -7,13 +7,10 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import com.abhishek.mvvmdemo.R
-import io.mockk.every
-import io.mockk.mockk
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -24,6 +21,8 @@ import org.koin.core.context.loadKoinModules
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.test.KoinTest
+import org.mockito.Mockito
+import org.mockito.Mockito.`when`
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -36,8 +35,8 @@ class LoginActivityTest : KoinTest {
 
     @Before
     fun beforeTest() {
-        loginViewModel = mockk()
-        every { loginViewModel.mutableLiveData } returns liveData
+        loginViewModel = Mockito.mock(LoginViewModel::class.java)
+        `when`(loginViewModel.mutableLiveData).thenReturn(liveData)
 
         loadKoinModules(
             module {
@@ -50,7 +49,8 @@ class LoginActivityTest : KoinTest {
 
     @Test
     fun testProgress() {
-        activityRule.activity.findViewById<EditText>(R.id.emailEt)?.importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
+        activityRule.activity.findViewById<EditText>(R.id.emailEt)?.importantForAutofill =
+            View.IMPORTANT_FOR_AUTOFILL_NO
         onView(withId(R.id.emailEt))
             .perform(typeText("abhishek"), ViewActions.closeSoftKeyboard())
     }
