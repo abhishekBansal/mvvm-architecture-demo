@@ -1,10 +1,13 @@
 package com.abhishek.mvvmdemo.onboarding
 
+import android.view.View
+import android.widget.EditText
 import androidx.lifecycle.MutableLiveData
-import androidx.test.espresso.Espresso.closeSoftKeyboard
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -29,7 +32,7 @@ class LoginActivityTest : KoinTest {
     private val liveData = MutableLiveData<LoginState>()
 
     @get:Rule
-    val activityRule = ActivityTestRule(LoginActivity::class.java, false, false)
+    val activityRule = ActivityTestRule(LoginActivity::class.java, true, false)
 
     @Before
     fun beforeTest() {
@@ -47,8 +50,9 @@ class LoginActivityTest : KoinTest {
 
     @Test
     fun testProgress() {
+        activityRule.activity.findViewById<EditText>(R.id.emailEt)?.importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
         onView(withId(R.id.emailEt))
-            .perform(ViewActions.replaceText("abhishek"), ViewActions.closeSoftKeyboard())
+            .perform(typeText("abhishek"), ViewActions.closeSoftKeyboard())
     }
 
     @After
@@ -57,3 +61,4 @@ class LoginActivityTest : KoinTest {
         stopKoin()
     }
 }
+
