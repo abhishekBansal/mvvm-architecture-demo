@@ -1,4 +1,4 @@
-package com.abhishek.mvvmdemo.onboarding
+package com.abhishek.mvvmdemo.integration.onboarding
 
 import android.view.View
 import android.widget.EditText
@@ -11,6 +11,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import com.abhishek.mvvmdemo.R
+import com.abhishek.mvvmdemo.onboarding.LoginActivity
+import com.abhishek.mvvmdemo.onboarding.LoginState
+import com.abhishek.mvvmdemo.onboarding.LoginViewModel
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule

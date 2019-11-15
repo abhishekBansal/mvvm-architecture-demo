@@ -1,0 +1,45 @@
+apply plugin: 'com.android.test'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.abhishek.mvvmdemo.MyTestRunner"
+    }
+
+    targetProjectPath ':app'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // testing with Koin
+    // because of this
+    // https://github.com/InsertKoinIO/koin/pull/604/commits/69391bc378bbb9007b9d82c46537e7d753be7ea3
+    implementation ("org.koin:koin-test:$koin_version") {
+        exclude group: 'org.mockito'
+    }
+
+    implementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // stuff like ActivityTestRule
+    implementation 'androidx.test:rules:1.2.0'
+    // AndroidJUnit4
+    implementation 'androidx.test.ext:junit:1.1.1'
+    // mockk
+//    androidTestImplementation "io.mockk:mockk-android:1.9.3.kotlin12"
+    implementation 'org.mockito:mockito-android:3.1.0'
+
+    // Koin AndroidX ViewModel feature
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+}

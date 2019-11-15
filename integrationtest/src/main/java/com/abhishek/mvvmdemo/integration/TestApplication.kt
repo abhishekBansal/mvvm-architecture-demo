@@ -1,4 +1,4 @@
-package com.abhishek.mvvmdemo
+package com.abhishek.mvvmdemo.integration
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext

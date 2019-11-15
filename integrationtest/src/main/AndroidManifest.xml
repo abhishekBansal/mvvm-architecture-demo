@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.abhishek.mvvmdemo.integration" >
+    <!-- Specify runner and target application package -->
+    <instrumentation android:name="androidx.test.runner.AndroidJUnitRunner"
+            android:targetPackage="com.abhishek.mvvmdemo"/>
+</manifest>
