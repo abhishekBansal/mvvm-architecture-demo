@@ -9,10 +9,9 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
-        testInstrumentationRunner "com.abhishek.mvvmdemo.MyTestRunner"
+        testApplicationId "com.abhishek.mvvmdemo.integration"
+        testInstrumentationRunner "com.abhishek.mvvmdemo.integration.MyTestRunner"
     }
 
     targetProjectPath ':app'
